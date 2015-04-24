@@ -1,0 +1,22 @@
+Encoding.default_external = "UTF-8"
+Encoding.default_internal = "UTF-8"
+
+def Web_index(filename)
+
+file = File.open("#{filename}.txt", 'r')
+
+data = file.read.to_s
+
+file.close
+
+data = data.to_s
+
+data = data.split(//)
+
+puts data
+
+puts data[2]
+
+end
+
+Web_index()
