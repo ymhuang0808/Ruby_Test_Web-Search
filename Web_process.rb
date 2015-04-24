@@ -13,15 +13,9 @@ Webpage_Generation(3, "柴犬躺著而狐狸狗坐在海邊")
 
 
 
-def index_exist(index)
-	WWW_index[index].empty
-end
 
 
-
-
-
-WWW_index = []
+WWW_index = {}
 
 def Web_index(filename)
 
@@ -36,15 +30,12 @@ data = data.to_s
 data = data.split(//)
 
 data.each do |word|
-	index = word.to_sym
-
-	unless index_exist(index)
-		puts "found!"		
-		WWW_index[index].push(filename)
+	if WWW_index.has_key?(word)
+		puts "found!"
+		WWW_index[word].push(filename)		
 	else
-		puts "not found"
-		web_name = {index => [filename]}
-		WWW_index.push(web_name)
+		puts "found"
+		WWW_index.store(word, [filename])
 	end
 end
 
